@@ -5,6 +5,7 @@ use CGI;
 
 my $q = CGI->new;
 my $text = $q->param('texto');
+my $title = $q->param('titulo');
 print "Content-type: text/html\n\n";
 print "<DOCTYPE html>\n";
 print "<html><head><title>Creacion</title></head>\n";
@@ -17,6 +18,9 @@ my $linea2;
 my $linea3;
 my $linea_final;
 my $copia;
+my $contenido="AAAA:\n $text";
+$archivo = fopen("nuevos/$title.txt", "w"");
+  fwrite($archivo, $contenido);
 for ($i; $i<length($text); $i++){
 	if (substr($text, $i, 1) eq "*" && substr($text, $i+1, 1) eq "*" && substr($text, $i+2, 1) eq "*"){
 	   $linea=substr($text, index($text, "***")+3);

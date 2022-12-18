@@ -4,13 +4,21 @@ use warnings;
 use CGI;
 
 my $q = CGI->new;
+
+
 my $text = $q->param('texto');
 my $title = $q->param('titulo');
 print "Content-type: text/html\n\n";
 print "<DOCTYPE html>\n";
 print "<html><head><title>Creacion</title></head>\n";
 print "<body>\n";
-print "<h2>El texto ingresado es: </h2><h2> $text</h2>\n";
+print "<h2>El texto ingresado es: </h2><h2>$text </h2>\n";
+
+
+
+open(OUT,">Nuevos/$title") or die print "<p1>ERROR: No se pudo crear el archivo</p1>";
+print OUT "$text";
+close(OUT);
 
 my $i=0;
 my $linea;
@@ -18,7 +26,7 @@ my $linea2;
 my $linea3;
 my $linea_final;
 my $copia;
-my $contenido="AAAA:\n $text";
+
 
 
 for ($i; $i<length($text); $i++){
@@ -93,6 +101,15 @@ for ($i; $i<length($text); $i++){
    
 	
 	}
+open(OUT,">>/home/alumno/public_html/Laboratorio12/list.html") or die print "<p1>ERROR: No se pudo crear el archivo</p1>";
+print OUT "<br><a href='http://192.168.0.22/~alumno/Laboratorio12/cantantes.html'>$title</a>";
+print OUT "<a href= 'http://192.168.0.22/~alumno/Laboratorio12/cantantes.html'>
+<input type='button' value='Editar'></a>";
+print OUT "<a href='http://192.168.0.22/~alumno/Laboratorio12/edit.pl'> 
+<input type='button' value='Eliminar'></a>";
+print OUT "</body></html>";
+close(OUT);
 
+print "<"
 
 print "</body></html>\n";
