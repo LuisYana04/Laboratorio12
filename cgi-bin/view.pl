@@ -103,7 +103,7 @@ $cond=0;
 }                               
 print <<EOF;
 <br><br><a href="http://192.168.0.24/~alumno/Wiki1.0/" style="font-size:28px">Regresar a la pagina principal</a>
-<br><a href="http://192.168.0.24/~alumno/Wiki1.0/cgi-bin/list.pl" style="font-size:28px" >Listado de paginas</a>
+ <br><a href="http://192.168.0.24/~alumno/Wiki1.0/cgi-bin/list.pl" style="font-size:28px" >Listado de paginas</a>
 </body></html>
 EOF
 
