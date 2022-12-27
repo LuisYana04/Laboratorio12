@@ -9,6 +9,7 @@ my $q = CGI->new;
 
 my $text = $q->param('texto');
 my $title = $q->param('titulo');
+my $usuario = $q->param('usuario');
 my $user = 'alumno';
 my $password = 'pweb1';
 print "Content-type: text/html\n\n";
@@ -18,8 +19,8 @@ print "<body>\n";
                    
 my $dsn="DBI:MariaDB:database=pweb1;host=192.168.0.24";
 my $dbh=DBI->connect($dsn,$user,$password) or die ("<p1>No se pudo conectar!</p1>");
-my $sth=$dbh->prepare("INSERT INTO paginasWiki(titutlo, texto)VALUES(?,?)");
-$sth->execute($title, $text);
+my $sth=$dbh->prepare("INSERT INTO paginasWiki(titutlo, texto, usuario)VALUES(?,?,?)");
+$sth->execute($title, $text, $usuario);
 
 $sth->finish;
 $dbh->disconnect;
